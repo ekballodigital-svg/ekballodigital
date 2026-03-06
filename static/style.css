@@ -1,74 +1,99 @@
-body{
+/* ------------------------------
+NAVBAR
+------------------------------ */
+
+.navbar{
+
+background:#0b2e26 !important;
+border-bottom:2px solid #1f8f5f;
+
+}
+
+.navbar-brand{
+
+color:#2ecc71 !important;
+font-weight:bold;
+font-size:20px;
+
+}
+
+.navbar a{
+
+color:#dfeeee !important;
+margin-right:15px;
+text-decoration:none;
+font-weight:500;
+
+}
+
+.navbar a:hover{
+
+color:#2ecc71 !important;
+
+}
+
+/* ------------------------------
+CONTAINER
+------------------------------ */
+
+.container{
+
+margin-top:40px;
+
+}
+
+/* ------------------------------
+FOOTER
+------------------------------ */
+
+.footer{
+
+margin-top:60px;
+padding:30px;
+background:#081714;
+border-top:1px solid #1f8f5f;
+
+}
+
+.footer p{
+
+margin:0;
+color:#aaa;
+
+}
+
+/* ------------------------------
+SCROLLBAR
+------------------------------ */
+
+::-webkit-scrollbar{
+
+width:8px;
+
+}
+
+::-webkit-scrollbar-track{
 
 background:#0f1f1c;
-font-family:Arial;
-color:white;
 
 }
 
-h2{
+::-webkit-scrollbar-thumb{
 
-color:#2ecc71;
-
-}
-
-.form-container{
-
-background:#162b26;
-padding:30px;
-border-radius:10px;
-max-width:500px;
+background:#1f8f5f;
+border-radius:4px;
 
 }
 
-label{
+/* ------------------------------
+FORM FOCUS
+------------------------------ */
 
-display:block;
-margin-top:15px;
-font-weight:bold;
+input:focus,
+select:focus,
+textarea:focus{
 
-}
-
-input, select, textarea{
-
-width:100%;
-padding:10px;
-margin-top:5px;
-border-radius:6px;
-border:none;
-background:#203a33;
-color:white;
-
-}
-
-textarea{
-
-height:100px;
-
-}
-
-button{
-
-margin-top:20px;
-background:#27ae60;
-border:none;
-padding:12px;
-border-radius:6px;
-cursor:pointer;
-font-size:16px;
-
-}
-
-button:hover{
-
-background:#2ecc71;
-
-}
-
-pre{
-
-background:#000;
-padding:20px;
-border-radius:10px;
+outline:none;
+box-shadow:0 0 0 2px #2ecc71;
 
 }
