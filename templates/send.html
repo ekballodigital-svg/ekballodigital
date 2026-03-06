@@ -4,19 +4,41 @@
 
 <h2>Enviar Template WhatsApp</h2>
 
-<div class="mb-3">
+<div class="form-container">
+
 <label>Número</label>
-<input id="numero" class="form-control" placeholder="551199999999">
+<input id="numero" placeholder="551199999999">
+
+<label>Escolher Template</label>
+
+<select id="template" onchange="previewTemplate()">
+
+<option value="">Selecione</option>
+<option value="promo_template">promo_template</option>
+<option value="pedido_confirmado">pedido_confirmado</option>
+<option value="boas_vindas">boas_vindas</option>
+
+</select>
+
+<div class="preview-box">
+
+<h4>Preview da Mensagem</h4>
+
+<div id="preview-msg">
+
+Selecione um template
+
 </div>
 
-<div class="mb-3">
-<label>Template</label>
-<input id="template" class="form-control" placeholder="nome_template">
 </div>
 
-<button class="btn btn-success" onclick="enviar()">
+<button onclick="enviar()">
+
 Enviar Template
+
 </button>
+
+</div>
 
 <h4 class="mt-4">Resposta do servidor</h4>
 
@@ -24,20 +46,45 @@ Enviar Template
 
 <script>
 
+const templates = {
+
+promo_template:"🔥 Promoção especial!\nAcesse nosso site agora.",
+
+pedido_confirmado:"Olá {{1}}, seu pedido foi confirmado com sucesso.",
+
+boas_vindas:"Olá {{1}}, seja bem vindo ao nosso serviço!"
+
+}
+
+function previewTemplate(){
+
+const template = document.getElementById("template").value
+
+document.getElementById("preview-msg").innerText =
+templates[template] || "Selecione um template"
+
+}
+
 async function enviar(){
 
 const numero = document.getElementById("numero").value
 const template = document.getElementById("template").value
 
 const response = await fetch("/send-template",{
+
 method:"POST",
+
 headers:{
 "Content-Type":"application/json"
 },
+
 body:JSON.stringify({
+
 numero:numero,
 template:template
+
 })
+
 })
 
 const data = await response.json()
