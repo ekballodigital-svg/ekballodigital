@@ -88,13 +88,43 @@ def send_template():
     return jsonify(response.json())
 
 
-# CRIAR TEMPLATE
 @app.route("/create-template-api", methods=["POST"])
 def create_template():
 
     data = request.json
+
     name = data.get("name")
+    language = data.get("language")
+    category = data.get("category")
+    header = data.get("header")
     message = data.get("message")
+    button = data.get("button")
+
+    components = []
+
+    if header:
+        components.append({
+            "type": "HEADER",
+            "format": "TEXT",
+            "text": header
+        })
+
+    components.append({
+        "type": "BODY",
+        "text": message
+    })
+
+    if button:
+        components.append({
+            "type": "BUTTONS",
+            "buttons":[
+                {
+                    "type":"URL",
+                    "text":"Acessar",
+                    "url":button
+                }
+            ]
+        })
 
     url = f"https://graph.facebook.com/v22.0/{BUSINESS_ACCOUNT_ID}/message_templates"
 
@@ -105,14 +135,9 @@ def create_template():
 
     payload = {
         "name": name,
-        "language": "pt_BR",
-        "category": "UTILITY",
-        "components": [
-            {
-                "type": "BODY",
-                "text": message
-            }
-        ]
+        "language": language,
+        "category": category,
+        "components": components
     }
 
     response = requests.post(url, headers=headers, json=payload)
