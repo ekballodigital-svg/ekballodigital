@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Criar Template WhatsApp</h2>
+
+<div class="mb-3">
+<label>Nome do template</label>
+<input id="name" class="form-control" placeholder="promo_template">
+</div>
+
+<div class="mb-3">
+<label>Mensagem</label>
+<input id="message" class="form-control" placeholder="Olá {{1}}, sua compra foi confirmada">
+</div>
+
+<button class="btn btn-success" onclick="criar()">
+Criar Template
+</button>
+
+<h4 class="mt-4">Resposta do servidor</h4>
+
+<pre id="resposta"></pre>
+
+<script>
+
+async function criar(){
+
+const name = document.getElementById("name").value
+const message = document.getElementById("message").value
+
+const response = await fetch("/create-template-api",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+name:name,
+message:message
+})
+})
+
+const data = await response.json()
+
+document.getElementById("resposta").innerText =
+JSON.stringify(data,null,2)
+
+}
+
+</script>
+
+{% endblock %}
