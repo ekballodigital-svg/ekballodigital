@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Enviar Template WhatsApp</h2>
+
+<div class="mb-3">
+<label>Número</label>
+<input id="numero" class="form-control" placeholder="551199999999">
+</div>
+
+<div class="mb-3">
+<label>Template</label>
+<input id="template" class="form-control" placeholder="nome_template">
+</div>
+
+<button class="btn btn-success" onclick="enviar()">
+Enviar Template
+</button>
+
+<h4 class="mt-4">Resposta do servidor</h4>
+
+<pre id="resposta"></pre>
+
+<script>
+
+async function enviar(){
+
+const numero = document.getElementById("numero").value
+const template = document.getElementById("template").value
+
+const response = await fetch("/send-template",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+numero:numero,
+template:template
+})
+})
+
+const data = await response.json()
+
+document.getElementById("resposta").innerText =
+JSON.stringify(data,null,2)
+
+}
+
+</script>
+
+{% endblock %}
