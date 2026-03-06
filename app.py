@@ -1,13 +1,14 @@
 from flask import Flask, request, render_template, jsonify
 import requests
-import os
 
 app = Flask(__name__)
 
 VERIFY_TOKEN = "ekballo_verify_token"
 
-WHATSAPP_TOKEN ="EAA1ZCGcCmLbIBQ8AKgD5a3NgK0kRHfvWVNNvRxvMd2ZC3f0yEO6BZC9jGYYSwONK7ztmFx7ksXTrgMSrf3WwXMPBTuZAQGNMYOvFRfI3umz7V0ZAzfOUdU85rOwZCAWn5K6FzEEL8I9eZCsXTtL9skbBLh8E1jnzOR11nRXZCSdLpT3lfROqMoKwLY1TAG1Vp4uVJKTyx3ZCLPWoJA8xKBE6rDGPd8JnCyUpawQGYxR5jdnHqnfga5nU6RmUA6tUhoJHdqs2D8GKZA2h1UzWjISROeVGVZA"
-PHONE_NUMBER_ID ="872291475977200"
+WHATSAPP_TOKEN = "SEU_TOKEN"
+PHONE_NUMBER_ID = "872291475977200"
+BUSINESS_ACCOUNT_ID = "SEU_BUSINESS_ACCOUNT_ID"
+
 
 @app.route("/")
 def home():
@@ -27,6 +28,11 @@ def terms():
 @app.route("/send")
 def send_page():
     return render_template("send.html")
+
+
+@app.route("/create-template")
+def template_page():
+    return render_template("create_template.html")
 
 
 # WEBHOOK META
@@ -50,7 +56,7 @@ def webhook():
         return "EVENT_RECEIVED", 200
 
 
-# ENVIO DE TEMPLATE
+# ENVIAR TEMPLATE
 @app.route("/send-template", methods=["POST"])
 def send_template():
 
@@ -58,7 +64,7 @@ def send_template():
     numero = data.get("numero")
     template = data.get("template")
 
-    url = f"https://graph.facebook.com/v19.0/{PHONE_NUMBER_ID}/messages"
+    url = f"https://graph.facebook.com/v22.0/{PHONE_NUMBER_ID}/messages"
 
     headers = {
         "Authorization": f"Bearer {WHATSAPP_TOKEN}",
@@ -72,9 +78,41 @@ def send_template():
         "template": {
             "name": template,
             "language": {
-                "code": "en_US"
+                "code": "pt_BR"
             }
         }
+    }
+
+    response = requests.post(url, headers=headers, json=payload)
+
+    return jsonify(response.json())
+
+
+# CRIAR TEMPLATE
+@app.route("/create-template-api", methods=["POST"])
+def create_template():
+
+    data = request.json
+    name = data.get("name")
+    message = data.get("message")
+
+    url = f"https://graph.facebook.com/v22.0/{BUSINESS_ACCOUNT_ID}/message_templates"
+
+    headers = {
+        "Authorization": f"Bearer {WHATSAPP_TOKEN}",
+        "Content-Type": "application/json"
+    }
+
+    payload = {
+        "name": name,
+        "language": "pt_BR",
+        "category": "UTILITY",
+        "components": [
+            {
+                "type": "BODY",
+                "text": message
+            }
+        ]
     }
 
     response = requests.post(url, headers=headers, json=payload)
