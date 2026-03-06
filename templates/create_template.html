@@ -4,21 +4,49 @@
 
 <h2>Criar Template WhatsApp</h2>
 
-<div class="mb-3">
+<div class="form-container">
+
+<label>Tipo de mensagem</label>
+<select id="type">
+<option value="">Escolha</option>
+<option value="MARKETING">Marketing</option>
+<option value="UTILITY">Utility</option>
+<option value="AUTHENTICATION">Authentication</option>
+</select>
+
 <label>Nome do template</label>
-<input id="name" class="form-control" placeholder="promo_template">
-</div>
+<input id="name" placeholder="promo_template">
 
-<div class="mb-3">
+<label>Idioma</label>
+<select id="language">
+<option value="pt_BR">Português (Brasil)</option>
+<option value="en_US">English</option>
+<option value="es_ES">Español</option>
+</select>
+
+<label>Categoria</label>
+<select id="category">
+<option value="MARKETING">Marketing</option>
+<option value="UTILITY">Utility</option>
+<option value="AUTHENTICATION">Authentication</option>
+</select>
+
+<label>Cabeçalho (opcional)</label>
+<input id="header" placeholder="Promoção especial">
+
 <label>Mensagem</label>
-<input id="message" class="form-control" placeholder="Olá {{1}}, sua compra foi confirmada">
-</div>
+<textarea id="message" placeholder="Olá {{1}}, sua compra foi confirmada"></textarea>
 
-<button class="btn btn-success" onclick="criar()">
+<label>Botão (opcional)</label>
+<input id="button" placeholder="https://seusite.com">
+
+<button onclick="criar()">
 Criar Template
 </button>
 
-<h4 class="mt-4">Resposta do servidor</h4>
+</div>
+
+<h3>Resposta da API</h3>
 
 <pre id="resposta"></pre>
 
@@ -26,8 +54,13 @@ Criar Template
 
 async function criar(){
 
+const type = document.getElementById("type").value
 const name = document.getElementById("name").value
+const language = document.getElementById("language").value
+const category = document.getElementById("category").value
+const header = document.getElementById("header").value
 const message = document.getElementById("message").value
+const button = document.getElementById("button").value
 
 const response = await fetch("/create-template-api",{
 method:"POST",
@@ -35,8 +68,13 @@ headers:{
 "Content-Type":"application/json"
 },
 body:JSON.stringify({
-name:name,
-message:message
+type,
+name,
+language,
+category,
+header,
+message,
+button
 })
 })
 
