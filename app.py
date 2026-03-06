@@ -72,7 +72,7 @@ def send_template():
         "template": {
             "name": template,
             "language": {
-                "code": "pt_BR"
+                "code": "en_US"
             }
         }
     }
