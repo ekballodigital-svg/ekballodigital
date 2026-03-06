@@ -100,17 +100,39 @@ border-radius:4px;
 .form-container{
 
 background:#132f29;
-padding:35px;
+padding:40px;
 border-radius:10px;
-max-width:700px;
-box-shadow:0 10px 30px rgba(0,0,0,0.4);
+max-width:650px;
+margin-top:20px;
+
+display:flex;
+flex-direction:column;
+gap:16px;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
 
 }
 
+
 label{
 
-margin-top:15px;
+font-size:14px;
 font-weight:600;
-color:#d6f5ec;
+color:#b8e6d8;
+
+}
+
+input, select, textarea{
+
+width:100%;
+padding:12px 14px;
+
+border-radius:6px;
+border:1px solid #1f8f5f;
+
+background:#0f2520;
+color:white;
+
+font-size:14px;
 
 }
