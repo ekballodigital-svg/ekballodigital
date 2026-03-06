@@ -9,6 +9,19 @@ WHATSAPP_TOKEN = "EAA1ZCGcCmLbIBQ6Pprw6XZBYlt8e0tgTywNgBk9RqjTWXIid5bIug6dZA2RWZ
 PHONE_NUMBER_ID = "872291475977200"
 BUSINESS_ACCOUNT_ID = "2314805045708173"
 
+@app.route("/get-templates")
+def get_templates():
+
+    url = f"https://graph.facebook.com/v22.0/{BUSINESS_ACCOUNT_ID}/message_templates"
+
+    headers = {
+        "Authorization": f"Bearer {WHATSAPP_TOKEN}"
+    }
+
+    response = requests.get(url, headers=headers)
+
+    return jsonify(response.json())
+
 
 @app.route("/")
 def home():
