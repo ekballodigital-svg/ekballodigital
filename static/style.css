@@ -136,3 +136,30 @@ color:white;
 font-size:14px;
 
 }
+
+/* ------------------------------
+PREVIEW WHATSAPP
+------------------------------ */
+
+.preview-box{
+
+background:#122521;
+border-radius:10px;
+padding:20px;
+margin-top:20px;
+border:1px solid #1f8f5f;
+
+}
+
+#preview-msg{
+
+background:white;
+color:#222;
+padding:15px;
+border-radius:8px;
+margin-top:10px;
+font-size:15px;
+line-height:1.5;
+max-width:350px;
+
+}
