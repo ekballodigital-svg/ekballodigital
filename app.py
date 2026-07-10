@@ -5,9 +5,9 @@ app = Flask(__name__)
 
 VERIFY_TOKEN = "ekballo_verify_token"
 
-WHATSAPP_TOKEN = "token_whatsapp"
-PHONE_NUMBER_ID = "phone_number"
-BUSINESS_ACCOUNT_ID = "business_account"
+WHATSAPP_TOKEN = "EAAq3DhKE9TUBRxLsdGBztfkLmZBgfLWNdmqLZAZCBHlCOCkntGagZAZAQSwFplGUqdgLrii4bQZBNzrwMtd2UVFF6eTI7jBkCv7FjLshLaHo9Wwjz7ZCRgckVN3t470p1pfca6iD3KYuRWr96ML9wdb0L9GiuSdHpU9wIzNXEHS6WnNwqUQRKAbOy7ueLZBwzl0vXTqELwxCsoifYTyX9cDql0WYnrMM68ijvlsSq2Ag8dGqlTYjw0s13heFSJhbOx3FB2HdhqjLKohmttaHavee"
+PHONE_NUMBER_ID = "872291475977200"
+BUSINESS_ACCOUNT_ID = "546882985147414"
 
 @app.route("/get-templates")
 def get_templates():
