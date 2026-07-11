@@ -91,7 +91,7 @@ def send_template():
         "template": {
             "name": template,
             "language": {
-                "code": "en_US"
+                "code": "pt_BR"
             }
         }
     }
