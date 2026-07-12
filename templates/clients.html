@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container" style="max-width: 900px; margin: 40px auto;">
+  <div style="display:flex; justify-content: space-between; align-items:center;">
+    <h1>Clientes conectados</h1>
+    <a href="/embedded-signup" class="btn btn-primary">+ Conectar novo cliente</a>
+  </div>
+
+  {% if clients|length == 0 %}
+    <p>Nenhum cliente conectado ainda.</p>
+  {% else %}
+  <table style="width:100%; border-collapse: collapse; margin-top: 20px;">
+    <thead>
+      <tr style="text-align:left; border-bottom: 2px solid #ddd;">
+        <th style="padding:8px;">Empresa</th>
+        <th style="padding:8px;">Número</th>
+        <th style="padding:8px;">WABA ID</th>
+        <th style="padding:8px;">Status</th>
+        <th style="padding:8px;">Conectado em</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for c in clients %}
+      <tr style="border-bottom: 1px solid #eee;">
+        <td style="padding:8px;">{{ c.business_name }}</td>
+        <td style="padding:8px;">{{ c.display_phone_number }}</td>
+        <td style="padding:8px; font-family: monospace;">{{ c.waba_id }}</td>
+        <td style="padding:8px;">{{ c.status }}</td>
+        <td style="padding:8px;">{{ c.created_at }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+</div>
+{% endblock %}
