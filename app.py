@@ -20,10 +20,14 @@ WHATSAPP_TOKEN = os.environ.get("WHATSAPP_TOKEN", "cole o tokem aqui")
 PHONE_NUMBER_ID = os.environ.get("PHONE_NUMBER_ID", "cole o id number aqui")
 BUSINESS_ACCOUNT_ID = os.environ.get("BUSINESS_ACCOUNT_ID", "cole o id business aqui")
 
-# Credenciais do APP no Meta for Developers (necessárias para o Cadastro Incorporado)
-META_APP_ID = os.environ.get("META_APP_ID", "")
-META_APP_SECRET = os.environ.get("META_APP_SECRET", "")
-META_CONFIG_ID = os.environ.get("META_CONFIG_ID", "")  # ID da configuração de Login do Facebook p/ Empresas
+# Credenciais do App no Meta for Developers (para o Cadastro Incorporado)
+# Encontradas em: App Dashboard > Configurações > Básico
+META_APP_ID="3798923280264626"
+META_APP_SECRET="c9869a99cb146c37bc76c8921e4c8e2a"
+
+# ID da configuração de "Login do Facebook para Empresas"
+# Criado em: App Dashboard > WhatsApp > Configuração da API incorporada
+META_CONFIG_ID="917644857399714"
 
 GRAPH_VERSION = "v22.0"
 GRAPH_URL = f"https://graph.facebook.com/{GRAPH_VERSION}"
