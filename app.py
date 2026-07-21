@@ -291,7 +291,7 @@ def send_template():
         "messaging_product": "whatsapp",
         "to": numero,
         "type": "template",
-        "template": {"name": template, "language": {"code": "pt_BR"}},
+        "template": {"name": template, "language": {"code": "en"}},
     }
     response = requests.post(url, headers=headers, json=payload)
     return jsonify(response.json())
