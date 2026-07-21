@@ -12,13 +12,13 @@ app = Flask(__name__)
 # =========================================================
 # CONFIGURAÇÃO GERAL
 # =========================================================
-VERIFY_TOKEN = os.environ.get("VERIFY_TOKEN", "ekballo_verify_token")
+VERIFY_TOKEN = "ekballo_verify_token"
 
 # Credenciais "padrão" (mantidas por compatibilidade com o sistema atual,
 # usadas quando nenhum client_id é informado nas chamadas)
-WHATSAPP_TOKEN = os.environ.get("WHATSAPP_TOKEN", "cole o tokem aqui")
-PHONE_NUMBER_ID = os.environ.get("PHONE_NUMBER_ID", "cole o id number aqui")
-BUSINESS_ACCOUNT_ID = os.environ.get("BUSINESS_ACCOUNT_ID", "cole o id business aqui")
+WHATSAPP_TOKEN = "EAAM0ZBQieCesBSFDAZAetJ4cQVpUP7ieUCDvrWHYrQiUKGoQGWXGNnZCrXsy9goEWmNuTT9zTVHntxgTkicWtES4kKnWUzuZAQzWTB9USunJCwYgrSZBOQ3c46YZBbSyz0dkcZBULEdD9R7BlIBdKTFDESMk3Ez1ou5k6OuXuafFZBR9lZCYZCZAmtYXNGCTKWJ1BzERmO0nvMebGFy2NcdSGJjApJowQIFilv6xQPkHtXlbTF4HnZCNugZBkZBnk4j5NRXBZB2W5UZAidfTrMnZAikQg1aFN"
+PHONE_NUMBER_ID = "1182475218290035"
+BUSINESS_ACCOUNT_ID = "2064448947777009"
 
 # Credenciais do App no Meta for Developers (para o Cadastro Incorporado)
 # Encontradas em: App Dashboard > Configurações > Básico
