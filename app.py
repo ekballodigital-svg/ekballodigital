@@ -27,7 +27,7 @@ META_APP_SECRET="896920db013769e4bcc52200ac31b4d4"
 
 # ID da configuração de "Login do Facebook para Empresas"
 # Criado em: App Dashboard > WhatsApp > Configuração da API incorporada
-META_CONFIG_ID="917644857399714"
+META_CONFIG_ID="1004379059042889"
 
 GRAPH_VERSION = "v22.0"
 GRAPH_URL = f"https://graph.facebook.com/{GRAPH_VERSION}"
