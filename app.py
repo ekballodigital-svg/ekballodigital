@@ -22,8 +22,8 @@ BUSINESS_ACCOUNT_ID = "2064448947777009"
 
 # Credenciais do App no Meta for Developers (para o Cadastro Incorporado)
 # Encontradas em: App Dashboard > Configurações > Básico
-META_APP_ID="3798923280264626"
-META_APP_SECRET="c9869a99cb146c37bc76c8921e4c8e2a"
+META_APP_ID="902669126207979"
+META_APP_SECRET="896920db013769e4bcc52200ac31b4d4"
 
 # ID da configuração de "Login do Facebook para Empresas"
 # Criado em: App Dashboard > WhatsApp > Configuração da API incorporada
